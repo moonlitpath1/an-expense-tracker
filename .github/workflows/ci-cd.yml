@@ -1,25 +1,38 @@
+
 name: CI/CD Pipeline
 
 on: [push]
 
+permissions:
+  contents: write
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with: {node-version: '20'}
-      
-      - run: npm install
-      
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
       - name: Run automated tests
-        run: npm test  # Automated testing stage
-      
+        run: npm test
+
       - name: Code quality check
-        run: npm run lint  # Code quality check stage
-      
+        run: npm run lint
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
       - name: Deploy to GitHub Pages
         run: npx gh-pages -d .
         env:
