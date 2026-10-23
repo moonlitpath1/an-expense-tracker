@@ -35,6 +35,6 @@ jobs:
           git config --global --list
 
       - name: Deploy to GitHub Pages
-        run: npx gh-pages -d .
+        run: npx gh-pages -d . -u "github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
