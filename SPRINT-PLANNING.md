@@ -1,4 +1,4 @@
-# Sprint Planning (FA2 - Agile Software Development)
+# Sprint Planning 
 
 ## Sprint Goal
 Build and deploy a functional Personal Expense Tracker with core CRUD operations (Create, Read, Update, Delete) and automated CI/CD pipeline validation.
