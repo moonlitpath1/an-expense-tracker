@@ -20,3 +20,4 @@
 **Acceptance Criteria:**
 - Total amount updates dynamically
 - Calculates sum of all expense amounts
+- Add 
